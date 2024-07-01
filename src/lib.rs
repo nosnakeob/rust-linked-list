@@ -1,4 +1,5 @@
 mod doubly;
+mod two_lock_queue;
 
 #[cfg(test)]
 mod tests {
