@@ -9,6 +9,7 @@ repository = "https://github.com/snake/rust-linked-list"
 
 [dev-dependencies]
 criterion = "0.5"  # 用于基准测试
+rand = "0.8"
 
 [dependencies]
 derive-new = "0.7"
