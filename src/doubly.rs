@@ -35,7 +35,7 @@ struct Node<T> {
 }
 
 #[derive(PartialEq, Eq, Clone, Debug, new)]
-struct LinkList<T> {
+pub struct DoublyLinkList<T> {
     // 拥有所有权
     #[new(default)]
     head: Option<Box<Node<T>>>,
@@ -47,7 +47,7 @@ struct LinkList<T> {
     len: usize,
 }
 
-impl<T> LinkList<T> {
+impl<T> DoublyLinkList<T> {
     pub fn len(&self) -> usize {
         self.len
     }
@@ -128,7 +128,7 @@ impl<T> LinkList<T> {
     }
 }
 
-impl<T: Display> Display for LinkList<T> {
+impl<T: Display> Display for DoublyLinkList<T> {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         write!(f, "LinkList [")?;
         
@@ -151,14 +151,14 @@ mod test {
 
     #[test]
     fn test_new_list() {
-        let list: LinkList<i32> = LinkList::new();
+        let list: DoublyLinkList<i32> = DoublyLinkList::new();
         assert_eq!(list.len(), 0);
         assert_eq!(list.to_string(), "LinkList []");
     }
 
     #[test]
     fn test_push_operations() {
-        let mut list = LinkList::new();
+        let mut list = DoublyLinkList::new();
         
         // 测试 push_back
         list.push_back(1);
@@ -177,7 +177,7 @@ mod test {
 
     #[test]
     fn test_pop_operations() {
-        let mut list = LinkList::new();
+        let mut list = DoublyLinkList::new();
         
         // 空链表弹出测试
         assert_eq!(list.pop_front(), None);
@@ -209,7 +209,7 @@ mod test {
 
     #[test]
     fn test_mixed_operations() {
-        let mut list = LinkList::new();
+        let mut list = DoublyLinkList::new();
         
         // 混合操作测试
         list.push_front(1);  // [1]
